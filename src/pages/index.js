@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const IndexPage = () => {
   ReactGA.initialize("UA-131083321-1")
-  ReactGA.pageview(window.location.pathname)
+  ReactGA.pageview("home")
 
   return (
     <Layout>
