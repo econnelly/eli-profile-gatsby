@@ -15,8 +15,6 @@ import Resume from './resume'
 import Portfolio from './portfolio'
 import Footer from './footer'
 
-import $ from 'jquery';
-
 import '../css/default.css'
 import '../css/layout.css'
 
@@ -36,6 +34,7 @@ const Layout = (props: Props) => {
       <About/>
       <Resume/>
       <Portfolio/>
+      {/*<Testimonials/>*/}
       {/*<Contact/>*/}
       <Footer/>
     </>

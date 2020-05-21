@@ -1,28 +1,30 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
-interface Props {
-  testimonials: Testimonial[]
-}
-
-interface Testimonial {
-  user: string
-  text: string
-}
-
-const Testimonials = (props?: Props) => {
-  let testimonials = null
-  if (props) {
-    testimonials = props.testimonials.map(function (testimonials: Testimonial) {
-      return (
-        <li key={testimonials.user}>
-          <blockquote>
-            <p>{testimonials.text}</p>
-            <cite>{testimonials.user}</cite>
-          </blockquote>
-        </li>
-      )
-    })
+const Testimonials = () => {
+  const data = useStaticQuery(graphql`
+  query {
+    testimonials: allTestimonialsJson {
+      edges {
+        node {
+          user
+          text
+        }
+      }
+    }
   }
+`)
+
+  const testimonials = data.testimonials.edges.map(function (testimonial: any) {
+    return (
+      <li key={testimonial.node.user}>
+        <blockquote>
+          <p>{testimonial.node.text}</p>
+          <cite>{testimonial.node.user}</cite>
+        </blockquote>
+      </li>
+    )
+  })
 
   return (
     <section id="testimonials">
