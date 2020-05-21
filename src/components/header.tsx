@@ -102,7 +102,7 @@ const Header = () => {
         setNav(section.id);
         return
       } else if (section && top == 0) {
-        setNav('home')
+        setNav(homeSection)
       }
     })
   }
