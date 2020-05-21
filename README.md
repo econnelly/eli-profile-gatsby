@@ -6,18 +6,18 @@ It uses React components to build the site and JSON files to fill in the data. I
  
 **Getting Started**
 
-1. Copy the template locally
+Copy the template locally
 ```shell script
 # create a new resume template site using the default starter
 gatsby new my-resume https://github.com/econnelly/gatsby-resume-template
 ```
 
-1. Install dependencies
+Install dependencies
 ```shell script
 npm install
 ```
 
-1. Start server
+Start server
 ```shell script
 cd my-resume
 gatsby develop
