@@ -3,6 +3,7 @@ import "../css/default.css"
 import "../css/layout.css"
 import ProfileImage from "./profileimage"
 import { graphql, useStaticQuery } from 'gatsby'
+import { aboutSection } from '../js/navids'
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -26,7 +27,7 @@ const About = () => {
   const resumeDownload = data.profileJson.resume
 
   return (
-    <section id="about">
+    <section id={aboutSection}>
       <div className="row">
         <div className="three columns">
           <ProfileImage alt={name} className={"profile-pic"} />

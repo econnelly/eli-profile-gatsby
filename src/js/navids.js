@@ -1,0 +1,6 @@
+export const homeSection = "home"
+export const aboutSection = "about"
+export const resumeSection = "resume"
+export const portfolioSection = "portfolio"
+export const testimonialsSection = "testimonials"
+export const contactSection = "contact"

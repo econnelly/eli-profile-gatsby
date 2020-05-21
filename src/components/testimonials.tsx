@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { testimonialsSection } from '../js/navids'
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -27,7 +28,7 @@ const Testimonials = () => {
   })
 
   return (
-    <section id="testimonials">
+    <section id={testimonialsSection}>
       <div className="text-container">
         <div className="row">
           <div className="two columns header-col">

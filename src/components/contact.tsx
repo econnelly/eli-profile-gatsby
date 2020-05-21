@@ -2,6 +2,7 @@ import React from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import { graphql, useStaticQuery } from "gatsby"
+import { contactSection } from '../js/navids'
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -25,7 +26,7 @@ const Contact = () => {
   const message = data.contactJson.contactmessage
 
   return (
-    <section id="contact">
+    <section id={contactSection}>
       <div className="row section-head">
         <div className="two columns header-col">
           <h1>

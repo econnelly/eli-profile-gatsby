@@ -2,6 +2,7 @@ import React from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import { graphql, useStaticQuery } from "gatsby"
+import { resumeSection } from '../js/navids'
 
 export const Resume = () => {
   const data = useStaticQuery(graphql`
@@ -80,7 +81,7 @@ export const Resume = () => {
   })
 
   return (
-    <section id="resume">
+    <section id={resumeSection}>
       <div className="row education">
         <div className="three columns header-col">
           <h1>

@@ -1,59 +1,112 @@
-// import { Link } from "gatsby"
-// import PropTypes from "prop-types"
-// import React from "react"
-//
-// interface Props {
-//   title: string
-//   children?: React.ReactNode
-// }
-//
-// const Header = ( props: Props ) => (
-//   <header
-//     style={{
-//       background: `rebeccapurple`,
-//       marginBottom: `1.45rem`,
-//     }}
-//   >
-//     <div
-//       style={{
-//         margin: `0 auto`,
-//         maxWidth: 960,
-//         padding: `1.45rem 1.0875rem`,
-//       }}
-//     >
-//       <h1 style={{ margin: 0 }}>
-//         <Link
-//           to="/"
-//           style={{
-//             color: `white`,
-//             textDecoration: `none`,
-//           }}
-//         >
-//           {props.title}
-//         </Link>
-//       </h1>
-//       {props.children}
-//     </div>
-//   </header>
-// )
-//
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-//
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
-//
-// export default Header
+import React, { useEffect, useState } from "react"
 
-import React from 'react'
+import "../css/default.css"
+import "../css/layout.css"
+import { graphql, useStaticQuery } from "gatsby"
+import { aboutSection, contactSection, homeSection, portfolioSection, resumeSection, testimonialsSection } from '../js/navids'
 
-import '../css/default.css'
-import '../css/layout.css'
-import { graphql, useStaticQuery } from 'gatsby'
+
 
 const Header = () => {
+  const [navClassHome, setNavClassHome] = useState("current")
+  const [navClassAbout, setNavClassAbout] = useState("")
+  const [navClassResume, setNavClassResume] = useState("")
+  const [navClassPortfolio, setNavClassPortfolio] = useState("")
+  // @ts-ignore
+  const [navClassTestimonials, setNavClassTestimonials] = useState("")
+  // @ts-ignore
+  const [navClassContact, setNavClassContact] = useState("")
+
+  const [navBarClass, setNavBarClass] = useState("")
+
+  const setNav = (anchor: string) => {
+    switch (anchor) {
+      case homeSection:
+        setNavClassHome("current")
+        setNavClassAbout("")
+        setNavClassResume("")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("")
+        setNavClassContact("")
+        setNavBarClass("")
+        break
+      case aboutSection:
+        setNavClassHome("")
+        setNavClassAbout("current")
+        setNavClassResume("")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("")
+        setNavClassContact("")
+        setNavBarClass("opaque")
+        break
+      case resumeSection:
+        setNavClassHome("")
+        setNavClassAbout("")
+        setNavClassResume("current")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("")
+        setNavClassContact("")
+        setNavBarClass("opaque")
+        break
+      case portfolioSection:
+        setNavClassHome("")
+        setNavClassAbout("")
+        setNavClassResume("")
+        setNavClassPortfolio("current")
+        setNavClassTestimonials("")
+        setNavClassContact("")
+        setNavBarClass("opaque")
+        break
+      case testimonialsSection:
+        setNavClassHome("")
+        setNavClassAbout("")
+        setNavClassResume("")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("current")
+        setNavClassContact("")
+        setNavBarClass("opaque")
+        break
+      case contactSection:
+        setNavClassHome("")
+        setNavClassAbout("")
+        setNavClassResume("")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("")
+        setNavClassContact("current")
+        setNavBarClass("opaque")
+        break
+    }
+  }
+
+  let sections: (HTMLElement | null)[] = []
+  useEffect(() => {
+    sections[5] = document.getElementById(homeSection)
+    sections[4] = document.getElementById(aboutSection)
+    sections[3] = document.getElementById(resumeSection)
+    sections[2] = document.getElementById(portfolioSection)
+    sections[1] = document.getElementById(testimonialsSection)
+    sections[0] = document.getElementById(contactSection)
+
+    window.addEventListener("scroll", handleScroll)
+
+    return function cleanup() {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  })
+
+  const handleScroll = () => {
+    const top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
+
+    sections.forEach((section) => {
+      if (section && section.offsetTop >= top) {
+        setNav(section.id);
+        return
+      } else if (section && top == 0) {
+        setNav('home')
+      }
+    })
+  }
+
   const data = useStaticQuery(graphql`
     query HeaderQuery {
       profileJson {
@@ -78,11 +131,11 @@ const Header = () => {
   const occupation = data.profileJson.occupation
   const description = data.profileJson.description
   const city = data.profileJson.city
-  const networks = data.allSocialJson.edges.map(function(network: any) {
+  const networks = data.allSocialJson.edges.map(function (network: any) {
     return (
       <li key={network.node.name}>
         <a href={network.node.url}>
-          <i className={network.node.className}/>
+          <i className={network.node.className} />
         </a>
       </li>
     )
@@ -90,7 +143,7 @@ const Header = () => {
 
   return (
     <header id="home">
-      <nav id="nav-wrap">
+      <nav id="nav-wrap" className={navBarClass}>
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
           Show navigation
         </a>
@@ -99,33 +152,53 @@ const Header = () => {
         </a>
 
         <ul id="nav" className="nav">
-          <li className="current">
-            <a className="smoothscroll" href="#home">
+          <li className={navClassHome}>
+            <a
+              className="smoothscroll"
+              href={`#${homeSection}`}
+            >
               Home
             </a>
           </li>
-          <li>
-            <a className="smoothscroll" href="#about">
+          <li className={navClassAbout}>
+            <a
+              className="smoothscroll"
+              href={`#${aboutSection}`}
+            >
               About
             </a>
           </li>
-          <li>
-            <a className="smoothscroll" href="#resume">
+          <li className={navClassResume}>
+            <a
+              className="smoothscroll"
+              href={`#${resumeSection}`}
+            >
               Resume
             </a>
           </li>
-          <li>
-            <a className="smoothscroll" href="#portfolio">
+          <li className={navClassPortfolio}>
+            <a
+              className="smoothscroll"
+              href={`#${portfolioSection}`}
+            >
               Projects
             </a>
           </li>
           {/*<li>*/}
-          {/*  <a className="smoothscroll" href="#testimonials">*/}
+          {/*  <a*/}
+          {/*    className="smoothscroll"*/}
+          {/*    href={`#${testimonialsAnchor}`}*/}
+          {/*    onClick={() => setNav("testimonials")}*/}
+          {/*  >*/}
           {/*    Testimonials*/}
           {/*  </a>*/}
           {/*</li>*/}
           {/*<li>*/}
-          {/*  <a className="smoothscroll" href="#contact">*/}
+          {/*  <a*/}
+          {/*    className="smoothscroll"*/}
+          {/*    href={`#${contactAnchor}`}*/}
+          {/*    onClick={() => setNav("contact")}*/}
+          {/*  >*/}
           {/*    Contact*/}
           {/*  </a>*/}
           {/*</li>*/}
@@ -138,14 +211,14 @@ const Header = () => {
           <h3>
             I'm a {city} based <span>{occupation}</span>. {description}.
           </h3>
-          <hr/>
+          <hr />
           <ul className="social">{networks}</ul>
         </div>
       </div>
 
       <p className="scrolldown">
         <a className="smoothscroll" href="#about">
-          <i className="icon-down-circle"/>
+          <i className="icon-down-circle" />
         </a>
       </p>
     </header>

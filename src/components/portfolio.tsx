@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
+import { portfolioSection } from '../js/navids'
 
 export const Portfolio = () => {
   const data = useStaticQuery(graphql`
@@ -52,7 +53,7 @@ export const Portfolio = () => {
   })
 
   return (
-    <section id="portfolio">
+    <section id={portfolioSection}>
       <div className="row">
         <div className="twelve columns collapsed">
           <h1>Check Out Some of My Projects</h1>

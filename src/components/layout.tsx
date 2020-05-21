@@ -18,6 +18,8 @@ import Footer from './footer'
 import '../css/default.css'
 import '../css/layout.css'
 
+// import "../js/init"
+
 
 interface Props {
   text?: string
