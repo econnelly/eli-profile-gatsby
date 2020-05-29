@@ -1,20 +1,14 @@
 import React from "react"
 import { scheduleSection } from "../js/navids"
+import {Helmet} from "react-helmet";
 
 const ScheduleMeeting = () => {
-  const head = document.querySelector("head")
-  const script = document.createElement("script")
-  script.setAttribute(
-    "src",
-    "https://assets.calendly.com/assets/external/widget.js"
-  )
-
-  if (head) {
-    head.appendChild(script)
-  }
 
   return (
     <section id={scheduleSection}>
+      <Helmet>
+        <script src={"https://assets.calendly.com/assets/external/widget.js"}/>
+      </Helmet>
       <div id="schedule_form">
         <div
           className="calendly-inline-widget"
