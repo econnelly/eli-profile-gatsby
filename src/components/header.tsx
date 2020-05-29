@@ -18,6 +18,7 @@ const Header = () => {
   const [navClassAbout, setNavClassAbout] = useState("")
   const [navClassResume, setNavClassResume] = useState("")
   const [navClassPortfolio, setNavClassPortfolio] = useState("")
+  // @ts-ignore
   const [navClassSchedule, setNavClassSchedule] = useState("")
   // @ts-ignore
   const [navClassTestimonials, setNavClassTestimonials] = useState("")
@@ -103,13 +104,13 @@ const Header = () => {
 
   let sections: (HTMLElement | null)[] = []
   useEffect(() => {
-    sections[6] = document.getElementById(homeSection)
-    sections[5] = document.getElementById(aboutSection)
-    sections[4] = document.getElementById(resumeSection)
-    sections[3] = document.getElementById(portfolioSection)
-    sections[2] = document.getElementById(scheduleSection)
-    sections[1] = document.getElementById(testimonialsSection)
-    sections[0] = document.getElementById(contactSection)
+    sections[3] = document.getElementById(homeSection)
+    sections[2] = document.getElementById(aboutSection)
+    sections[1] = document.getElementById(resumeSection)
+    sections[0] = document.getElementById(portfolioSection)
+    // sections[2] = document.getElementById(scheduleSection)
+    // sections[1] = document.getElementById(testimonialsSection)
+    // sections[0] = document.getElementById(contactSection)
 
     window.addEventListener("scroll", handleScroll)
 
@@ -198,11 +199,11 @@ const Header = () => {
               Projects
             </a>
           </li>
-          <li className={navClassSchedule}>
-            <a className="smoothscroll" href={`#${scheduleSection}`}>
-              Schedule Meeting
-            </a>
-          </li>
+          {/*<li className={navClassSchedule}>*/}
+          {/*  <a className="smoothscroll" href={`#${scheduleSection}`}>*/}
+          {/*    Schedule Meeting*/}
+          {/*  </a>*/}
+          {/*</li>*/}
           {/*<li>*/}
           {/*  <a*/}
           {/*    className="smoothscroll"*/}

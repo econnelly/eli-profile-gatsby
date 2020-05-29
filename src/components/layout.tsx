@@ -17,7 +17,6 @@ import Footer from "./footer"
 
 import "../css/default.css"
 import "../css/layout.css"
-import ScheduleMeeting from "./schedule"
 
 // import "../js/init"
 
@@ -34,7 +33,7 @@ const Layout = (props: Props) => {
       <About />
       <Resume />
       <Portfolio />
-      <ScheduleMeeting />
+      {/*<ScheduleMeeting />*/}
       {/*<Testimonials/>*/}
       {/*<Contact/>*/}
       <Footer />
