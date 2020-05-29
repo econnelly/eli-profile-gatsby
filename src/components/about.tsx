@@ -2,8 +2,8 @@ import React from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import ProfileImage from "./profileimage"
-import { graphql, useStaticQuery } from 'gatsby'
-import { aboutSection } from '../js/navids'
+import { graphql, useStaticQuery } from "gatsby"
+import { aboutSection } from "../js/navids"
 
 const About = () => {
   const data = useStaticQuery(graphql`

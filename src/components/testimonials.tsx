@@ -1,20 +1,20 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { testimonialsSection } from '../js/navids'
+import { testimonialsSection } from "../js/navids"
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
-  query {
-    testimonials: allTestimonialsJson {
-      edges {
-        node {
-          user
-          text
+    query {
+      testimonials: allTestimonialsJson {
+        edges {
+          node {
+            user
+            text
+          }
         }
       }
     }
-  }
-`)
+  `)
 
   const testimonials = data.testimonials.edges.map(function (testimonial: any) {
     return (

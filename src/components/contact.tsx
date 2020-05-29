@@ -2,7 +2,7 @@ import React from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import { graphql, useStaticQuery } from "gatsby"
-import { contactSection } from '../js/navids'
+import { contactSection } from "../js/navids"
 
 const Contact = () => {
   const data = useStaticQuery(graphql`

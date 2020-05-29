@@ -2,7 +2,7 @@ import React from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import { graphql, useStaticQuery } from "gatsby"
-import { resumeSection } from '../js/navids'
+import { resumeSection } from "../js/navids"
 
 export const Resume = () => {
   const data = useStaticQuery(graphql`
@@ -15,7 +15,7 @@ export const Resume = () => {
           }
         }
       }
-      allEducationJson(sort: {order: DESC, fields: graduated}) {
+      allEducationJson(sort: { order: DESC, fields: graduated }) {
         edges {
           node {
             degree
@@ -25,7 +25,7 @@ export const Resume = () => {
           }
         }
       }
-      allWorkJson(sort: {order: ASC, fields: order}) {
+      allWorkJson(sort: { order: ASC, fields: order }) {
         edges {
           node {
             years
@@ -64,7 +64,10 @@ export const Resume = () => {
         <h3>{work.node.company}</h3>
         <p className="info">
           {work.node.title}
-          <span>&bull;</span> <em className="date">{work.node.employment.start}  -  {work.node.employment.end}</em>
+          <span>&bull;</span>{" "}
+          <em className="date">
+            {work.node.employment.start} - {work.node.employment.end}
+          </em>
         </p>
         <p>{work.node.description}</p>
       </div>
@@ -74,7 +77,7 @@ export const Resume = () => {
     const className = "bar-expand " + skills.node.name.toLowerCase()
     return (
       <li key={skills.node.name}>
-        <span style={{ width: skills.node.level }} className={className}/>
+        <span style={{ width: skills.node.level }} className={className} />
         <em>{skills.node.name}</em>
       </li>
     )

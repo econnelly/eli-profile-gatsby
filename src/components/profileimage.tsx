@@ -32,7 +32,13 @@ const ProfileImage = (props: Props) => {
     }
   `)
 
-  return <Img fluid={data.profileImage.childImageSharp.fluid} alt={props.alt} className={props.className} />
+  return (
+    <Img
+      fluid={data.profileImage.childImageSharp.fluid}
+      alt={props.alt}
+      className={props.className}
+    />
+  )
 }
 
 export default ProfileImage

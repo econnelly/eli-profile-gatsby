@@ -5,21 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 
-import Header from './header'
-import About from './about'
-import Resume from './resume'
+import Header from "./header"
+import About from "./about"
+import Resume from "./resume"
 
-import Portfolio from './portfolio'
-import Footer from './footer'
+import Portfolio from "./portfolio"
+import Footer from "./footer"
 
-import '../css/default.css'
-import '../css/layout.css'
+import "../css/default.css"
+import "../css/layout.css"
+import ScheduleMeeting from "./schedule"
 
 // import "../js/init"
-
 
 interface Props {
   text?: string
@@ -27,18 +27,17 @@ interface Props {
 }
 
 const Layout = (props: Props) => {
-
-
   return (
     <>
       {props.children}
-      <Header/>
-      <About/>
-      <Resume/>
-      <Portfolio/>
+      <Header />
+      <About />
+      <Resume />
+      <Portfolio />
+      <ScheduleMeeting />
       {/*<Testimonials/>*/}
       {/*<Contact/>*/}
-      <Footer/>
+      <Footer />
     </>
   )
 }

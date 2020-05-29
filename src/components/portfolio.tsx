@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
-import { portfolioSection } from '../js/navids'
+import { portfolioSection } from "../js/navids"
 
 export const Portfolio = () => {
   const data = useStaticQuery(graphql`

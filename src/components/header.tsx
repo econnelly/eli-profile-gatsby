@@ -3,15 +3,22 @@ import React, { useEffect, useState } from "react"
 import "../css/default.css"
 import "../css/layout.css"
 import { graphql, useStaticQuery } from "gatsby"
-import { aboutSection, contactSection, homeSection, portfolioSection, resumeSection, testimonialsSection } from '../js/navids'
-
-
+import {
+  aboutSection,
+  contactSection,
+  homeSection,
+  portfolioSection,
+  resumeSection,
+  scheduleSection,
+  testimonialsSection,
+} from "../js/navids"
 
 const Header = () => {
   const [navClassHome, setNavClassHome] = useState("current")
   const [navClassAbout, setNavClassAbout] = useState("")
   const [navClassResume, setNavClassResume] = useState("")
   const [navClassPortfolio, setNavClassPortfolio] = useState("")
+  const [navClassSchedule, setNavClassSchedule] = useState("")
   // @ts-ignore
   const [navClassTestimonials, setNavClassTestimonials] = useState("")
   // @ts-ignore
@@ -28,6 +35,7 @@ const Header = () => {
         setNavClassPortfolio("")
         setNavClassTestimonials("")
         setNavClassContact("")
+        setNavClassSchedule("")
         setNavBarClass("")
         break
       case aboutSection:
@@ -37,6 +45,7 @@ const Header = () => {
         setNavClassPortfolio("")
         setNavClassTestimonials("")
         setNavClassContact("")
+        setNavClassSchedule("")
         setNavBarClass("opaque")
         break
       case resumeSection:
@@ -46,6 +55,7 @@ const Header = () => {
         setNavClassPortfolio("")
         setNavClassTestimonials("")
         setNavClassContact("")
+        setNavClassSchedule("")
         setNavBarClass("opaque")
         break
       case portfolioSection:
@@ -55,6 +65,17 @@ const Header = () => {
         setNavClassPortfolio("current")
         setNavClassTestimonials("")
         setNavClassContact("")
+        setNavClassSchedule("")
+        setNavBarClass("opaque")
+        break
+      case scheduleSection:
+        setNavClassHome("")
+        setNavClassAbout("")
+        setNavClassResume("")
+        setNavClassPortfolio("")
+        setNavClassTestimonials("")
+        setNavClassContact("")
+        setNavClassSchedule("current")
         setNavBarClass("opaque")
         break
       case testimonialsSection:
@@ -64,6 +85,7 @@ const Header = () => {
         setNavClassPortfolio("")
         setNavClassTestimonials("current")
         setNavClassContact("")
+        setNavClassSchedule("")
         setNavBarClass("opaque")
         break
       case contactSection:
@@ -73,6 +95,7 @@ const Header = () => {
         setNavClassPortfolio("")
         setNavClassTestimonials("")
         setNavClassContact("current")
+        setNavClassSchedule("")
         setNavBarClass("opaque")
         break
     }
@@ -80,10 +103,11 @@ const Header = () => {
 
   let sections: (HTMLElement | null)[] = []
   useEffect(() => {
-    sections[5] = document.getElementById(homeSection)
-    sections[4] = document.getElementById(aboutSection)
-    sections[3] = document.getElementById(resumeSection)
-    sections[2] = document.getElementById(portfolioSection)
+    sections[6] = document.getElementById(homeSection)
+    sections[5] = document.getElementById(aboutSection)
+    sections[4] = document.getElementById(resumeSection)
+    sections[3] = document.getElementById(portfolioSection)
+    sections[2] = document.getElementById(scheduleSection)
     sections[1] = document.getElementById(testimonialsSection)
     sections[0] = document.getElementById(contactSection)
 
@@ -95,11 +119,13 @@ const Header = () => {
   })
 
   const handleScroll = () => {
-    const top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
+    const top =
+      (window.pageYOffset || document.documentElement.scrollTop) -
+      (document.documentElement.clientTop || 0)
 
-    sections.forEach((section) => {
+    sections.forEach(section => {
       if (section && section.offsetTop >= top) {
-        setNav(section.id);
+        setNav(section.id)
         return
       } else if (section && top == 0) {
         setNav(homeSection)
@@ -153,35 +179,28 @@ const Header = () => {
 
         <ul id="nav" className="nav">
           <li className={navClassHome}>
-            <a
-              className="smoothscroll"
-              href={`#${homeSection}`}
-            >
+            <a className="smoothscroll" href={`#${homeSection}`}>
               Home
             </a>
           </li>
           <li className={navClassAbout}>
-            <a
-              className="smoothscroll"
-              href={`#${aboutSection}`}
-            >
+            <a className="smoothscroll" href={`#${aboutSection}`}>
               About
             </a>
           </li>
           <li className={navClassResume}>
-            <a
-              className="smoothscroll"
-              href={`#${resumeSection}`}
-            >
+            <a className="smoothscroll" href={`#${resumeSection}`}>
               Resume
             </a>
           </li>
           <li className={navClassPortfolio}>
-            <a
-              className="smoothscroll"
-              href={`#${portfolioSection}`}
-            >
+            <a className="smoothscroll" href={`#${portfolioSection}`}>
               Projects
+            </a>
+          </li>
+          <li className={navClassSchedule}>
+            <a className="smoothscroll" href={`#${scheduleSection}`}>
+              Schedule Meeting
             </a>
           </li>
           {/*<li>*/}
