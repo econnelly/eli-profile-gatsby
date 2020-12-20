@@ -3,6 +3,7 @@ node_js:
   - '15.4.0'
 
 os: linux
+dist: focal
 
 script:
   - npm run test
