@@ -1,10 +1,10 @@
 {
   "name": "Eli Connelly",
-  "bio": "Android app developer with experience managing engineering teams",
+  "bio": "Software engineering manager with experience in web and mobile development",
   "city": "San Francisco",
   "state": "California",
   "email": "eli@eliconnelly.com",
   "resume": "elic_resume.pdf",
-  "occupation": "Engineering Manager / Android Developer",
-  "description": "I love making good apps great"
+  "occupation": "Engineering Manager",
+  "description": "I love making great software"
 }

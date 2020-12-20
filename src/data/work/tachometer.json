@@ -1,8 +1,8 @@
 {
-  "order": 1,
+  "order": 2,
   "company": "Tachometer, Inc",
   "title": "Founder",
-  "description": "Developed a dashboard to track all ad revenue that an app developer earns. Can be found at https://tachometer.io.",
+  "description": "Developed a dashboard to track all ad revenue that an app developer earns. Can be found at https://tachometer.io. This has become a side project now that I have full-time employment with Google.",
   "employment": { "start": "March 2019", "end": "Present" },
-  "years": 1
+  "years": 2
 }
