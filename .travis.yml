@@ -16,4 +16,4 @@ deploy:
   bucket: $AWS_BUCKET
   cleanup: false
   region: $AWS_REGION
-  local_dir: public
+  local_dir: ./public
