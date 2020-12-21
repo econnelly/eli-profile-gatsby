@@ -1,8 +1,8 @@
 {
-  "name": "eli-resume",
+  "name": "eli-profile",
   "private": true,
   "description": "A resume theme rooted in the Ceevee theme from StyleShout",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Eli Connelly <eli@eliconnelly.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
