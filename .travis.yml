@@ -14,8 +14,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   bucket: $AWS_BUCKET
-  cleanup: false
   region: $AWS_REGION
-  local_dir: ./public
+  local_dir: public
   on:
     branch: main
