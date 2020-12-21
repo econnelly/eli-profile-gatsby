@@ -17,3 +17,5 @@ deploy:
   cleanup: false
   region: $AWS_REGION
   local_dir: ./public
+  on:
+    branch: main
