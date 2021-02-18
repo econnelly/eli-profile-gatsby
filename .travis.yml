@@ -6,8 +6,8 @@ os: linux
 dist: focal
 
 script:
-  - npm run test
-  - npm run build
+  - yarn run test
+  - yarn run build
 
 deploy:
   provider: s3
