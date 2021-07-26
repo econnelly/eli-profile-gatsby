@@ -1,4 +1,5 @@
 ## Eli's Profile Site
+[![Build Status](https://travis-ci.com/econnelly/eli-profile.svg?branch=main)](https://travis-ci.com/econnelly/eli-profile)
 
 This is meant to hopefully help people who go through the same struggles I went through when building a portfolio web site.
 It uses React components to build the site and JSON files to fill in the data. It is based off of [React Resume Template](https://github.com/tbakerx/react-resume-template)
