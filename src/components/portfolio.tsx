@@ -31,6 +31,7 @@ export const Portfolio = () => {
           <a href={project.node.url} title={project.node.title}>
             {/* See gatsby-node.js for why this image loading works */}
             <GatsbyImage
+              alt="Profile Image"
               image={project.node.fields.portfolioImage.childImageSharp.gatsbyImageData} />
 
             <div className="overlay">
