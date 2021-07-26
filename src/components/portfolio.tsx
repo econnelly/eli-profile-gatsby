@@ -1,31 +1,28 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { portfolioSection } from "../js/navids"
 
 export const Portfolio = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      projects: allProjectsJson {
-        edges {
-          node {
-            url
-            title
-            image
-            fields {
-              portfolioImage {
-                childImageSharp {
-                  fluid(maxWidth: 200, maxHeight: 200) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+  const data = useStaticQuery(graphql`{
+  projects: allProjectsJson {
+    edges {
+      node {
+        url
+        title
+        image
+        fields {
+          portfolioImage {
+            childImageSharp {
+              gatsbyImageData(width: 200, height: 200, layout: CONSTRAINED)
             }
           }
         }
       }
     }
-  `)
+  }
+}
+`)
 
   const projects = data.projects.edges.map(function (project: any) {
     return (
@@ -33,9 +30,8 @@ export const Portfolio = () => {
         <div className="item-wrap">
           <a href={project.node.url} title={project.node.title}>
             {/* See gatsby-node.js for why this image loading works */}
-            <Image
-              fluid={project.node.fields.portfolioImage.childImageSharp.fluid}
-            />
+            <GatsbyImage
+              image={project.node.fields.portfolioImage.childImageSharp.gatsbyImageData} />
 
             <div className="overlay">
               <div className="portfolio-item-meta">
@@ -49,7 +45,7 @@ export const Portfolio = () => {
           </a>
         </div>
       </div>
-    )
+    );
   })
 
   return (
