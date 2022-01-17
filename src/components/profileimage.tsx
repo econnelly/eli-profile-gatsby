@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -19,21 +19,23 @@ interface Props {
 }
 
 const ProfileImage = (props: Props) => {
-  const data = useStaticQuery(graphql`{
-  profileImage: file(relativePath: {eq: "profilepic.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 300, layout: CONSTRAINED)
+  const data = useStaticQuery(graphql`
+    {
+      profileImage: file(relativePath: { eq: "profilepic.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 300, layout: CONSTRAINED)
+        }
+      }
     }
-  }
-}
-`)
+  `)
 
   return (
     <GatsbyImage
       image={data.profileImage.childImageSharp.gatsbyImageData}
       alt={props.alt}
-      className={props.className} />
-  );
+      className={props.className}
+    />
+  )
 }
 
 export default ProfileImage

@@ -4,15 +4,25 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// @ts-ignore
 exports.onCreateWebpackConfig = ({ actions }) => {
   const { setWebpackConfig } = actions
   setWebpackConfig({
     externals: {
       jquery: "jQuery", // important: 'Q' capitalized
     },
+    resolve: {
+      fallback: {
+        fs: false,
+        crypto: require.resolve("crypto-browserify"),
+        stream: require.resolve("stream-browserify"),
+        path: require.resolve("path-browserify"),
+      },
+    },
   })
 }
 
+// @ts-ignore
 exports.onCreateNode = ({ node, actions }) => {
   // destructures the needed action
   const { createNodeField } = actions
