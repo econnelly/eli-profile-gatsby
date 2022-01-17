@@ -25,7 +25,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const Layout = (props: Props) => {
+const MainLayout = (props: Props) => {
   return (
     <>
       {props.children}
@@ -41,8 +41,8 @@ const Layout = (props: Props) => {
   )
 }
 
-Layout.propTypes = {
+MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default MainLayout
