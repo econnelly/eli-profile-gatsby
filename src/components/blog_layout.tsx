@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Footer from "./footer";
 
 interface Props {
     title?: string
@@ -8,7 +9,11 @@ interface Props {
 
 const BlogLayout = (props: Props) => {
     return (
-        <article>{props.children}</article>
+        <>
+            <p>{props.title}</p>
+            <article>{props.children}</article>
+            <Footer />
+        </>
     )
 }
 

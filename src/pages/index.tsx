@@ -1,7 +1,7 @@
 import React from "react"
 import ReactGA from "react-ga"
 
-import Main_layout from "../components/layout"
+import MainLayout from "../components/main_layout";
 import SEO from "../components/seo"
 
 const IndexPage = () => {
@@ -9,9 +9,9 @@ const IndexPage = () => {
   ReactGA.pageview("home")
 
   return (
-    <Main_layout>
+    <MainLayout>
       <SEO title="eliconnelly.com" />
-    </Main_layout>
+    </MainLayout>
   )
 }
 

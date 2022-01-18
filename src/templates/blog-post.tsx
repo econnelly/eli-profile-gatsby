@@ -5,7 +5,7 @@ import Contact from "../components/contact"
 import Seo from "../components/seo"
 import BlogLayout from "../components/blog_layout";
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data }: any) => {
     const post = data.markdownRemark
     const siteTitle = data.site.siteMetadata?.title || `Title`
     const { previous, next } = data

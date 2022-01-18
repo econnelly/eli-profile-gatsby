@@ -25,7 +25,10 @@ const SEO = (props: Props) => {
           siteMetadata {
             title
             description
-            author
+            author {
+              name
+              summary
+            }
           }
         }
       }
